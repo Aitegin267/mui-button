@@ -1,21 +1,28 @@
 import styled from "styled-components";
 import TotalAmount from "./TotalAmount";
-import {OrderItem} from "./OrderItem";
+import { OrderItem } from "./OrderItem";
 import { useContext } from "react";
-import { basketContext } from "../../store/basketContext";
+import { basketContext } from "../../store/BasketContext";
 
-export const ORDERED_MEALS = []
+export const ORDERED_MEALS = [];
 
 const OrderBasket = ({ onClose }) => {
-  const {items, onAddByOne, onRemoveByOne} = useContext(basketContext)
+  const { items, onAddByOne, onRemoveByOne } = useContext(basketContext);
   return (
     <div>
       <OrderBox>
         {items.map((item) => {
-          return <OrderItem key={item.id} onAddByOne={onAddByOne} onRemoveByOne={onRemoveByOne} {...item} />
+          return (
+            <OrderItem
+              key={item.id}
+              onAddByOne={onAddByOne}
+              onRemoveByOne={onRemoveByOne}
+              {...item}
+            />
+          );
         })}
       </OrderBox>
-      <TotalAmount onClose={onClose} orders={items}/>
+      <TotalAmount onClose={onClose} orders={items} />
     </div>
   );
 };

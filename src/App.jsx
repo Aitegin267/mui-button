@@ -3,7 +3,7 @@ import { Header } from "./components/Header";
 import { AvailableMeals } from "./components/meals/AvailableMeals";
 import { Meals } from "./components/meals/Meals";
 import { Summary } from "./components/Summary";
-import { BasketContextProvider } from "./store/basketContext";
+import { BasketContextProvider } from "./store/BasketContext";
 
 function App() {
   const [basket, setBasket] = useState(false);

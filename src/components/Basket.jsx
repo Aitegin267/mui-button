@@ -1,26 +1,26 @@
 import styled, { css, keyframes } from "styled-components";
 import CartIcon from "../assets/basketIcon.svg";
 import { useContext, useEffect, useState } from "react";
-import { basketContext } from "../store/basketContext";
+import { basketContext } from "../store/BasketContext";
 
-export const Basket = ({openBasket}) => {
-  const {items} = useContext(basketContext);
-  const [className, setClassName] = useState(true)
+export const Basket = ({ openBasket }) => {
+  const { items } = useContext(basketContext);
+  const [className, setClassName] = useState(true);
 
   useEffect(() => {
-setClassName(true);
+    setClassName(true);
     const timerId = setTimeout(() => {
-      setClassName(false)
+      setClassName(false);
     }, 500);
-    return () => { 
-      clearTimeout(timerId)
-    }
-  }, [items])
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [items]);
 
-  function countFoodAmount () {
+  function countFoodAmount() {
     return items.reduce((curr, prev) => {
-      return curr + prev.amount 
-    }, 0)
+      return curr + prev.amount;
+    }, 0);
   }
   return (
     <>
@@ -44,14 +44,17 @@ const bump = keyframes`
   }
 `;
 
-function playAnimation(props) { //Animation  korzina
-  return props.className ? css`
-    animation: ${bump} 0.3s linear;
-  ` : ""
+function playAnimation(props) {
+  //Animation  korzina
+  return props.className
+    ? css`
+        animation: ${bump} 0.3s linear;
+      `
+    : "";
 }
 
 const BasketWrapper = styled.div`
-${playAnimation}
+  ${playAnimation}
   border-radius: 30px;
   background: rgb(90, 31, 8);
   padding: 10px 25px;
@@ -62,7 +65,6 @@ ${playAnimation}
   gap: 24px;
   user-select: none;
   width: 300px;
-  
 
   span {
     border-radius: 30px;

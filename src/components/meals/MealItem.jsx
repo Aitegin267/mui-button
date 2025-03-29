@@ -1,20 +1,19 @@
 import React, { useContext } from "react";
 import { MealForm } from "./MealForm";
 import styled from "styled-components";
-import { basketContext } from "../../store/basketContext";
+import { basketContext } from "../../store/BasketContext";
 
 export const MealItem = (props) => {
-
   const { title, description, price, id } = props;
-  const {onAdd} = useContext(basketContext)
-  function onAddToBasket(amount) { 
-    const newOrderedFood = { 
+  const { onAdd } = useContext(basketContext);
+  function onAddToBasket(amount) {
+    const newOrderedFood = {
       amount: +amount,
       title: title,
       price: price,
       id: id,
     };
-    onAdd(newOrderedFood) 
+    onAdd(newOrderedFood);
   }
   return (
     <StyledItem>
@@ -23,7 +22,7 @@ export const MealItem = (props) => {
         <StyledDescription>{description}</StyledDescription>
         <StyledPrice>${price}</StyledPrice>
       </div>
-      <MealForm onSubmit={onAddToBasket}/>
+      <MealForm onSubmit={onAddToBasket} />
     </StyledItem>
   );
 };
