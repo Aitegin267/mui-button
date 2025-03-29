@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 import CartIcon from "../assets/basketIcon.svg";
 import { useContext, useEffect, useState } from "react";
-import { basketContext } from "../store/BasketContext";
+import { basketContext } from "./store/BasketContext";
 
 export const Basket = ({ openBasket }) => {
   const { items } = useContext(basketContext);
@@ -45,7 +45,7 @@ const bump = keyframes`
 `;
 
 function playAnimation(props) {
-  //Animation  korzina
+
   return props.className
     ? css`
         animation: ${bump} 0.3s linear;

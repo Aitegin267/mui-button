@@ -2,7 +2,7 @@ import styled from "styled-components";
 import TotalAmount from "./TotalAmount";
 import { OrderItem } from "./OrderItem";
 import { useContext } from "react";
-import { basketContext } from "../../store/BasketContext";
+import { BasketContext } from "./store/BasketContext";
 
 export const ORDERED_MEALS = [];
 

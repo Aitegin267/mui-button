@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { MealForm } from "./MealForm";
 import styled from "styled-components";
-import { basketContext } from "../../store/BasketContext";
+import { basketContext } from "./store/BasketContext";
 
 export const MealItem = (props) => {
   const { title, description, price, id } = props;
